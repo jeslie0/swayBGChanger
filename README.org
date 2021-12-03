@@ -1,0 +1,9 @@
+#+title: Sway Background Changer
+This project is basically a nix project containing the code from [[https://sylvaindurand.org/dynamic-wallpapers-with-sway/][Sylvain Durand]]'s blog post on Dynamic Wallpapers with Sway, with some small edits.
+
+To use this, download the repository and run =chmod +x swayBGChanger.sh=. Then, to use it put the following in your Sway configuration file:
+#+BEGIN_SRC bash
+exec "swaychanger PATH/TO/WALLPAPER/FOLDER"
+#+END_SRC
+
+Then, restart sway. This will cause the images in the specified folder to be randomly chosen for the wallpaper, every 10 minutes.
