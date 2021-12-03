@@ -3,7 +3,7 @@ This project is basically a nix project containing the code from [[https://sylva
 
 To use this, download the repository and run =chmod +x swayBGChanger.sh=. Then, to use it put the following in your Sway configuration file:
 #+BEGIN_SRC bash
-exec "swaychanger PATH/TO/WALLPAPER/FOLDER"
+exec "swayBGChanger /PATH/TO/WALLPAPER/FOLDER"
 #+END_SRC
 
 Then, restart sway. This will cause the images in the specified folder to be randomly chosen for the wallpaper, every 10 minutes.
