@@ -1,5 +1,5 @@
 {
-  description = "A very basic flake";
+  description = "A background changer for Swaywm";
 
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
