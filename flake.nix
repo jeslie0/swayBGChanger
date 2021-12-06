@@ -11,7 +11,7 @@
         src = ./swayBGChanger.sh;
         nativeBuildInputs = [ makeWrapper ];
         builder = ./builder.sh;
-        # inherit swaybg;
+        inherit swaybg;
       };
   };
 }
