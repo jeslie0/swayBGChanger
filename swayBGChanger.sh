@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=$bash/bin:$swaybg/bin:$PATH
+PATH=$bash/bin:$swaybg/bin:$killall/bin:$PATH
 
 while true; do
     PID=`pidof swaybg`
