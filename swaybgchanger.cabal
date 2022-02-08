@@ -42,4 +42,5 @@ executable swaybgchanger
                       process,
                       random
     hs-source-dirs:   app
+    ghc-options: -O2 -threaded
     default-language: Haskell2010
