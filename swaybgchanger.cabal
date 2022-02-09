@@ -23,7 +23,8 @@ extra-source-files: CHANGELOG.org
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
+  exposed-modules:     Lib,
+                       Parser
   build-depends:       base,
                        directory,
                        process,
