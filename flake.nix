@@ -34,14 +34,20 @@
 
           defaultPackage = self.packages.${system}.${packageName};
 
-          devShell = pkgs.mkShell {
+          devShell = haskellPackages.shellFor {
+            packages = p: [ self.defaultPackage.${system} ];
             buildInputs = with haskellPackages;
-              [ ghc
-                haskell-language-server
+              [ haskell-language-server
                 cabal-install
+                apply-refact
+                hlint
+                stylish-haskell
+                hasktags
+                hindent
               ];
             inputsFrom = builtins.attrValues self.packages.${system};
+            withHoogle = true;
           };
-        }
+          }
     );
 }
