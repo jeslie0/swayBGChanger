@@ -14,23 +14,16 @@
       in
         {
           packages.${packageName} =
-            with haskellPackages; with pkgs;
-              mkDerivation {
-                pname = packageName;
-                version = "0.1.0.1";
-                src = ./.;
-                isLibrary = true;
-                isExecutable = true;
-                buildDepends = [ makeWrapper ];
-                libraryHaskellDepends = [ base directory process random ];
-                executableHaskellDepends = [ base directory process random ];
-                license = "unknown";
-                hydraPlatforms = lib.platforms.none;
-                postInstall = ''
-                          wrapProgram $out/bin/${packageName} \
-                            --prefix PATH : ${lib.getBin pkgs.swaybg}/bin
-                              '';
-              };
+            let unPatchedPkg = haskellPackages.callCabal2nix packageName self {};
+            in pkgs.haskell.lib.overrideCabal unPatchedPkg (old: {
+              buildDepends = [ pkgs.makeWrapper ];
+              postInstall = ''
+                            wrapProgram $out/bin/${packageName} \
+                            --prefix PATH : ${pkgs.lib.getBin pkgs.swaybg}/bin
+                            '';
+            }
+            );
+
 
           defaultPackage = self.packages.${system}.${packageName};
 
